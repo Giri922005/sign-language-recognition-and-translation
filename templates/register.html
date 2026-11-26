@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Smart Sign Learning</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Background Video */
+        .bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(26,42,108,0.85), rgba(0,0,0,0.9));
+            z-index: -1;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+        }
+
+        /* Register Card */
+        .register-container {
+            width: 100%;
+            max-width: 420px;
+            padding: 45px 35px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(14px);
+            border-radius: 25px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 16px;
+            border-radius: 12px;
+            border: none;
+            outline: none;
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        input::placeholder {
+            color: #ddd;
+        }
+
+        /* Buttons */
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #00f5d4, #90dbf4);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: #000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn.secondary {
+            background: transparent;
+            border: 2px solid #00f5d4;
+            color: #00f5d4;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 480px) {
+            .register-container {
+                padding: 35px 25px;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Sign Video -->
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="static/bg.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+
+    <form class="register-container" action="/register" method="POST">
+        <h2>Create Account</h2>
+        <p>Start learning sign language with smart video modules</p>
+
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name">
+
+        <label for="mail">Email</label>
+        <input type="email" id="mail" name="mail" required placeholder="Enter your email">
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required placeholder="Create password">
+
+        <label for="confirm_pass">Confirm Password</label>
+        <input type="password" id="confirm_pass" name="confirm_pass" required placeholder="Confirm password">
+
+        <button type="submit" class="btn">Register</button>
+        <button type="button" class="btn secondary" onclick="location.href='/login';">Already have an account?</button>
+
+        <div class="footer-text">
+            Smart Sign Learning System
+        </div>
+    </form>
+
+</body>
+</html>
